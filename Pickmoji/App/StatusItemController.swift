@@ -9,7 +9,6 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
     private let model: PopoverModel
     private var lastClose = Date.distantPast
     private var outsideClickMonitor: Any?
-    private var resignActiveObserver: Any?
 
     init(model: PopoverModel) {
         self.model = model
@@ -72,15 +71,16 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
     }
 
     // Transient popovers only see outside clicks while the app is active, and a
-    // menu bar app is often not (macOS 14+ activation rules). Watch globally instead.
+    // menu bar app is often not (macOS 14+ activation rules). Watch globally instead,
+    // ignoring clicks inside our own windows (popover, tone picker, status item).
     private func startWatchingForDismissal() {
         outsideClickMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
-            self?.close()
-        }
-        resignActiveObserver = NotificationCenter.default.addObserver(
-            forName: NSApplication.didResignActiveNotification, object: nil, queue: .main
-        ) { [weak self] _ in
-            MainActor.assumeIsolated { self?.close() }
+            guard let self else { return }
+            let location = NSEvent.mouseLocation
+            let insideOwnWindow = NSApp.windows.contains { $0.isVisible && $0.frame.contains(location) }
+            if !insideOwnWindow {
+                self.close()
+            }
         }
     }
 
@@ -88,10 +88,6 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
         if let outsideClickMonitor {
             NSEvent.removeMonitor(outsideClickMonitor)
             self.outsideClickMonitor = nil
-        }
-        if let resignActiveObserver {
-            NotificationCenter.default.removeObserver(resignActiveObserver)
-            self.resignActiveObserver = nil
         }
     }
 }
