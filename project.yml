@@ -1,0 +1,87 @@
+name: Pickmoji
+
+options:
+  bundleIdPrefix: com.dsiredesign
+  deploymentTarget:
+    macOS: "13.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: false
+  xcodeVersion: "26.0"
+
+settings:
+  base:
+    MARKETING_VERSION: 1.0.0
+    CURRENT_PROJECT_VERSION: 1
+    SWIFT_VERSION: 5.0
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+    DEVELOPMENT_TEAM: ""
+    ENABLE_HARDENED_RUNTIME: YES
+  configs:
+    Release:
+      ONLY_ACTIVE_ARCH: NO
+      ARCHS: arm64 x86_64
+
+packages:
+  KeyboardShortcuts:
+    url: https://github.com/sindresorhus/KeyboardShortcuts
+    exactVersion: 3.1.0
+
+targets:
+  Pickmoji:
+    type: application
+    platform: macOS
+    sources:
+      - path: Pickmoji
+        excludes:
+          - "**/*.md"
+      - path: LICENSES
+        type: folder
+        buildPhase: resources
+    dependencies:
+      - package: KeyboardShortcuts
+    info:
+      path: Pickmoji/Info.plist
+      properties:
+        CFBundleName: Pickmoji
+        CFBundleDisplayName: Pickmoji
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSUIElement: true
+        LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
+        NSHumanReadableCopyright: "MIT License"
+        NSPrincipalClass: NSApplication
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dsiredesign.pickmoji
+        PRODUCT_NAME: Pickmoji
+        ENABLE_HARDENED_RUNTIME: YES
+        SWIFT_TREAT_WARNINGS_AS_ERRORS: NO
+
+  PickmojiTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: PickmojiTests
+    dependencies:
+      - target: Pickmoji
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dsiredesign.pickmoji.tests
+        CODE_SIGN_IDENTITY: "-"
+
+schemes:
+  Pickmoji:
+    build:
+      targets:
+        Pickmoji: all
+        PickmojiTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - PickmojiTests
+    archive:
+      config: Release
