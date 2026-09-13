@@ -1,62 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-  <!-- Pickmoji app icon: a cursor booping a smiley. Original artwork, MIT. -->
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#2E5578"/>
-      <stop offset="1" stop-color="#1B334A"/>
-    </linearGradient>
-    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFE066"/>
-      <stop offset="1" stop-color="#F2B705"/>
-    </linearGradient>
-    <radialGradient id="faceShine" cx="0.35" cy="0.28" r="0.6">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="0.6" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="cursor" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#E9EDF2"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity="0.28"/>
-    </filter>
-    <filter id="cursorShadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="6" dy="10" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
-    </filter>
-  </defs>
-
-  <!-- macOS icon grid: 824px rounded square centred on a 1024 canvas -->
-  <rect x="100" y="100" width="824" height="824" rx="186" fill="url(#bg)"/>
-
-  <!-- face, nudged down-left as if pressed by the cursor -->
-  <g filter="url(#shadow)">
-    <circle cx="486" cy="548" r="268" fill="url(#face)"/>
-    <circle cx="486" cy="548" r="268" fill="url(#faceShine)"/>
-  </g>
-
-  <!-- squeezed-happy eyes -->
-  <g fill="none" stroke="#5B3A12" stroke-width="30" stroke-linecap="round">
-    <path d="M366 496 q40 -46 80 0"/>
-    <path d="M526 496 q40 -46 80 0"/>
-  </g>
-
-  <!-- blush -->
-  <ellipse cx="352" cy="586" rx="40" ry="26" fill="#FF8A65" opacity="0.55"/>
-  <ellipse cx="620" cy="586" rx="40" ry="26" fill="#FF8A65" opacity="0.55"/>
-
-  <!-- smile -->
-  <path d="M356 620 q130 130 260 0" fill="none" stroke="#5B3A12" stroke-width="30" stroke-linecap="round"/>
-
-  <!-- boop marks radiating from the touch point -->
-  <g fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" opacity="0.95">
-    <path d="M636 350 l-10 -40"/>
-    <path d="M606 370 l-34 -26"/>
-    <path d="M596 404 l-42 4"/>
-  </g>
-
-  <!-- arrow cursor, tip on the cheek -->
-  <g filter="url(#cursorShadow)" transform="translate(648 396) rotate(-20)">
-    <path d="M0 0 L0 236 L58 184 L102 278 L156 254 L112 162 L188 156 Z"
-          fill="url(#cursor)" stroke="#1B1B1B" stroke-width="18" stroke-linejoin="round"/>
-  </g>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M738 100H286C183.275 100 100 183.275 100 286V738C100 840.725 183.275 924 286 924H738C840.725 924 924 840.725 924 738V286C924 183.275 840.725 100 738 100Z" fill="url(#paint0_linear_1_2)"/>
+<path d="M512 780C660.012 780 780 660.012 780 512C780 363.988 660.012 244 512 244C363.988 244 244 363.988 244 512C244 660.012 363.988 780 512 780Z" fill="url(#paint1_linear_1_2)"/>
+<path d="M512 780C660.012 780 780 660.012 780 512C780 363.988 660.012 244 512 244C363.988 244 244 363.988 244 512C244 660.012 363.988 780 512 780Z" fill="url(#paint2_radial_1_2)"/>
+<path d="M369 413C395.667 382.333 422.333 382.333 449 413" stroke="#5B3A12" stroke-width="30" stroke-linecap="round"/>
+<path d="M529 413C555.667 382.333 582.333 382.333 609 413" stroke="#5B3A12" stroke-width="30" stroke-linecap="round"/>
+<path opacity="0.55" d="M355 529C377.091 529 395 517.359 395 503C395 488.641 377.091 477 355 477C332.909 477 315 488.641 315 503C315 517.359 332.909 529 355 529Z" fill="#FF8A65"/>
+<path opacity="0.55" d="M623 529C645.091 529 663 517.359 663 503C663 488.641 645.091 477 623 477C600.909 477 583 488.641 583 503C583 517.359 600.909 529 623 529Z" fill="#FF8A65"/>
+<path d="M359 537C445.667 623.667 532.333 623.667 619 537" stroke="#5B3A12" stroke-width="30" stroke-linecap="round"/>
+<path d="M600 614L680.717 835.767L717.434 767.066L790.93 840.348L833.465 799.327L760.653 727.924L830.017 696.292L600 614Z" fill="url(#paint3_linear_1_2)" stroke="#1B1B1B" stroke-width="18" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="paint0_linear_1_2" x1="100" y1="100" x2="100" y2="924" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2E5578"/>
+<stop offset="1" stop-color="#1B334A"/>
+</linearGradient>
+<linearGradient id="paint1_linear_1_2" x1="244" y1="244" x2="244" y2="780" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFE066"/>
+<stop offset="1" stop-color="#F2B705"/>
+</linearGradient>
+<radialGradient id="paint2_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(431.6 394.08) scale(321.6)">
+<stop stop-color="white" stop-opacity="0.55"/>
+<stop offset="0.6" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="paint3_linear_1_2" x1="600" y1="614" x2="695.082" y2="875.235" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#E9EDF2"/>
+</linearGradient>
+</defs>
 </svg>
