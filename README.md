@@ -19,7 +19,7 @@ Requires macOS 13 Ventura or later. Universal (Apple silicon and Intel).
 ## Install from the DMG
 
 1. Download `Pickmoji-<version>.dmg` from the
-   [latest release](../../releases/latest).
+   [latest release](https://github.com/dkkent/pickmoji/releases/latest).
 2. Open it and drag **Pickmoji** to **Applications**.
 3. Open Pickmoji. It lives in the menu bar; there is no Dock icon or window.
 
@@ -58,7 +58,7 @@ Requires Xcode 26 or later and [XcodeGen](https://github.com/yonaslab/XcodeGen)
 (`brew install xcodegen`).
 
 ```sh
-git clone <this repo> && cd pickmoji
+git clone https://github.com/dkkent/pickmoji.git && cd pickmoji
 ./build.sh --install
 ```
 
