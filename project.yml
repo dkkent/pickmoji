@@ -6,7 +6,6 @@ options:
     macOS: "13.0"
   createIntermediateGroups: true
   generateEmptyDirectories: false
-  xcodeVersion: "26.0"
 
 settings:
   base:
@@ -57,7 +56,6 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.dsiredesign.pickmoji
         PRODUCT_NAME: Pickmoji
         ENABLE_HARDENED_RUNTIME: YES
-        SWIFT_TREAT_WARNINGS_AS_ERRORS: NO
 
   PickmojiTests:
     type: bundle.unit-test
@@ -69,7 +67,6 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.dsiredesign.pickmoji.tests
-        CODE_SIGN_IDENTITY: "-"
 
 schemes:
   Pickmoji:
