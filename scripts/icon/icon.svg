@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Pickmoji app icon: a cursor booping a smiley. Original artwork, MIT. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E5578"/>
+      <stop offset="1" stop-color="#1B334A"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE066"/>
+      <stop offset="1" stop-color="#F2B705"/>
+    </linearGradient>
+    <radialGradient id="faceShine" cx="0.35" cy="0.28" r="0.6">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cursor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9EDF2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+    <filter id="cursorShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="6" dy="10" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- macOS icon grid: 824px rounded square centred on a 1024 canvas -->
+  <rect x="100" y="100" width="824" height="824" rx="186" fill="url(#bg)"/>
+
+  <!-- face, nudged down-left as if pressed by the cursor -->
+  <g filter="url(#shadow)">
+    <circle cx="486" cy="548" r="268" fill="url(#face)"/>
+    <circle cx="486" cy="548" r="268" fill="url(#faceShine)"/>
+  </g>
+
+  <!-- squeezed-happy eyes -->
+  <g fill="none" stroke="#5B3A12" stroke-width="30" stroke-linecap="round">
+    <path d="M366 496 q40 -46 80 0"/>
+    <path d="M526 496 q40 -46 80 0"/>
+  </g>
+
+  <!-- blush -->
+  <ellipse cx="352" cy="586" rx="40" ry="26" fill="#FF8A65" opacity="0.55"/>
+  <ellipse cx="620" cy="586" rx="40" ry="26" fill="#FF8A65" opacity="0.55"/>
+
+  <!-- smile -->
+  <path d="M356 620 q130 130 260 0" fill="none" stroke="#5B3A12" stroke-width="30" stroke-linecap="round"/>
+
+  <!-- boop marks radiating from the touch point -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" opacity="0.95">
+    <path d="M636 350 l-10 -40"/>
+    <path d="M606 370 l-34 -26"/>
+    <path d="M596 404 l-42 4"/>
+  </g>
+
+  <!-- arrow cursor, tip on the cheek -->
+  <g filter="url(#cursorShadow)" transform="translate(648 396) rotate(-20)">
+    <path d="M0 0 L0 236 L58 184 L102 278 L156 254 L112 162 L188 156 Z"
+          fill="url(#cursor)" stroke="#1B1B1B" stroke-width="18" stroke-linejoin="round"/>
+  </g>
+</svg>
