@@ -24,6 +24,9 @@ and no window.
 
 Runs on macOS 13 (Ventura) or newer, on both Apple silicon and Intel Macs.
 
+**Try it first:** there is a working copy of the picker you can use in your
+browser at [dickonkent.com/pickmoji](https://dickonkent.com/pickmoji/).
+
 ## Install
 
 1. Download `Pickmoji-<version>.dmg` from the
