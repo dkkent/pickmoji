@@ -57,6 +57,13 @@ gh release create v1.1.0 dist/Pickmoji-1.1.0.dmg dist/Pickmoji-1.1.0.dmg.sha256 
   --title "Pickmoji 1.1.0" --notes "What changed..."
 ```
 
+## 4. Update the website
+
+`dickonkent.com/pickmoji` states the version, DMG size, and a direct download
+link. In the site repo, edit `src/pages/pickmoji/index.astro` (the "Download
+for Mac" href and the "Version x.y.z" line). If the emoji data changed, also run
+`node scripts/sync-pickmoji-data.mjs` there.
+
 ## Homebrew
 
 Do not add a Homebrew cask until builds are notarized; Homebrew is
