@@ -7,6 +7,7 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
     private let statusItem: NSStatusItem
     private let popover = NSPopover()
     private let model: PopoverModel
+    private var lastClose = Date.distantPast
 
     init(model: PopoverModel) {
         self.model = model
@@ -31,7 +32,10 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
         KeyboardShortcuts.onKeyUp(for: .togglePopover) { [weak self] in self?.toggle() }
     }
 
+    // A click on the status item lands as mouse-down (which closes the transient
+    // popover) then mouse-up (this action); without the guard it would reopen.
     @objc private func statusItemClicked() {
+        if Date().timeIntervalSince(lastClose) < 0.3 { return }
         toggle()
     }
 
@@ -45,6 +49,7 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
 
     func show() {
         guard let button = statusItem.button else { return }
+        NSApp.unhide(nil)
         NSApp.activate(ignoringOtherApps: true)
         popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         popover.contentViewController?.view.window?.makeKey()
@@ -56,6 +61,7 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
     }
 
     func popoverDidClose(_ notification: Notification) {
+        lastClose = Date()
         model.reset()
         NSApp.hide(nil)
     }
