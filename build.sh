@@ -38,5 +38,5 @@ if [ "$INSTALL" = 1 ]; then
   rm -rf /Applications/Pickmoji.app
   cp -R "$APP" /Applications/Pickmoji.app
   echo "Installed /Applications/Pickmoji.app"
-  echo "Launch it from /Applications or with: open -a Pickmoji"
+  echo "Launch it with: open /Applications/Pickmoji.app"
 fi
